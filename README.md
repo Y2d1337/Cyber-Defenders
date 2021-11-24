@@ -1,2 +1,2 @@
 # Cyber-Defenders
-This repo contain Writeup for CyberDefenders challenges 
+This repo contain Writeups for CyberDefenders challenges 
