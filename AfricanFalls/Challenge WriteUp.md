@@ -1,4 +1,4 @@
-# Phishy Challenge
+# AfricanFalls Challenge
 ![This is an image](/AfricanFalls/Images/AfricaHead.png)
 
 
