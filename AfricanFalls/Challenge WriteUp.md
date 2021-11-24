@@ -1,5 +1,5 @@
 # Phishy Challenge
-![This is an image](/Phishy/Images/AfricaHead.png)
+![This is an image](/AfricanFalls/Images/AfricaHead.png)
 
 
 ## Challenge Information
