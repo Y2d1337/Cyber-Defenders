@@ -42,7 +42,7 @@ The disk image folder contains two files
 > **Flag: 9471e69c95d8909ae60ddff30d50ffa1**
 
 ### 2.What phrase did the suspect search for on 2021-04-29 18:17:38 UTC? (three words, two spaces in between)
-To find the suspect intetnet search i used nirsoft tool `chromecacheview` to see all chrome cache history and get the search he did.
+To find the suspect internet search i used nirsoft tool `chromecacheview` to see all chrome cache history and get the search he did.
 ![q2](/AfricanFalls/Images/q2.png)
 
 > **Flag: password cracking lists**
