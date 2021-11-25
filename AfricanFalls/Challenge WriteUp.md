@@ -106,7 +106,7 @@ During my investigation i was looking for command history artifacts, this artifa
 
 ![q7](/AfricanFalls/Images/q7.png)
 
-The command `nmap` dfir.science was executed `PowerShell` console.
+The command `nmap` dfir.science was executed in `PowerShell` console.
 > Nmap is a free and open-source network scanner )
 
 > **Flag: dfir.science**
