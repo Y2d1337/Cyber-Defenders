@@ -22,7 +22,7 @@
     • Chromecacheview
         ◦ ChromeCacheView is a small utility that reads the cache folder of Google Chrome Web browser, and displays the list of all files currently stored in the cache
     • PECmd
-        ◦ Prefetch parser by eric zimmerman
+        ◦ Prefetch parser by Eric Zimmerman
     • browsinghistoryview
         ◦ BrowsingHistoryView is a utility that reads the history data of different Web browsers (Mozilla Firefox, Google Chrome, Internet Explorer, Microsoft Edge, Opera)
     • hashcat
