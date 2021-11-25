@@ -1,6 +1,8 @@
 # AfricanFalls Challenge
 ![This is an image](/AfricanFalls/Images/AfricaHead.png)
 
+## Challenge Link
+https://cyberdefenders.org/labs/66
 
 ## Challenge Information
 - Image Size: 	 672 MB
