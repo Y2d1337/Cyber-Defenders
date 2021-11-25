@@ -163,7 +163,7 @@ Its works
 ### 11.What is the user "John Doe's" Windows login password?
 Windows login password stored in `SAM` file located in `/Windows/System32/config/SAM`
 
-I extracted to login data using `samdump2` tool with this command line
+I extracted the login data using `samdump2` tool with this command line
 
 `samdump2 -o /home/rhc/Desktop/1.txt /home/rhc/Downloads/SYSTEM /home/rhc/Downloads/SAM`
 
