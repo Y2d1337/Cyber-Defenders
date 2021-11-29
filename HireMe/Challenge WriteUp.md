@@ -39,25 +39,75 @@ https://cyberdefenders.org/labs/62
          
  ## Questions:       
          
-         
-         
 ### 1.What is the administrator's username?
 I used `Regripper` to extract the information from the registry hive into readable text file, the files location `Horcrux.E01_Partition 2 [32216MB]_NONAME [NTFS]\[root]\Windows\System32\config\`
-I used the `SOFTWARE` File to get the user profile list 
+
+I used the `SAM` file to get the users in administrators localgroup
+
+> SAM file is database used to store user account information, including password, account groups, access rights, and special privileges in Windows operating system.
+
+I get two `SID` number 
+> The SID (Security IDentifier) is a unique ID number that a computer or domain controller uses to identify you.
+
+`S-1-5-21-1649836244-3544936428-1548601679-1001`
+
+`S-1-5-21-1649836244-3544936428-1548601679-500`
+
+To see the user behind the `SID` i used the `SOFTWARE` file to get the user profile list
 
 #### Registry Path:
 > HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList.
 
 ![q1](/HireMe/Images/q1.png)
 
+The `SID S-1-5-21-1649836244-3544936428-1548601679-1001` belong to the user karen
+
+
+> **Flag: Karen**
+
 
 ### 2.What is the OS's build number?
+I used the `SOFTWARE` file to get the os build
+
+#### Registry Path:
+> HKEY_LOCAL_MACHINE\software\microsoft\windows nt\currentversion
+
+![q2](/HireMe/Images/q2.png)
+
+
+> **Flag: 16299**
 
 ### 3.What is the hostname of the computer?
+I used the `SOFTWARE` file to get the hostname of the computer
+
+#### Registry Path:
+> HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\ComputerName\ComputerName
+
+![q3](/HireMe/Images/q3.png)
+
+> **Flag: TOTALLYNOTAHACK**
 
 ### 4.A messaging application was used to communicate with a fellow Alpaca enthusiest. What is the name of the software?
 
+After mounting the image file, i got two disk partition,
+One partition for the OS system and the other one contains different files
+
+![q4](/HireMe/Images/q4.png)
+
+> **Flag: Skype**
+
 ### 5.What is the zip code of the administrator's post?
+Usually zip code is related to registration form in sites,so i searched in browser history and cache a POST request , but i didn't find anything
+
+So i try to look at the broswer autofill option
+
+#### Path:
+> Users\Karen\AppData\Local\Google\Chrome\User Data\Default\Web Data
+
+![q5](/HireMe/Images/q5.png)
+
+> **Flag: 19709**
+
 
 ### 6.What are the initials of the person who contacted the admin user from TAAUSAI?
 
