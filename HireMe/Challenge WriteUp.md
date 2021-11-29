@@ -26,8 +26,8 @@ https://cyberdefenders.org/labs/62
         ◦ FTK® Imager is a data preview and imaging tool
     • Chromecacheview
         ◦ ChromeCacheView is a small utility that reads the cache folder of Google Chrome Web browser, and displays the list of all files currently stored in the cache
-    • PECmd
-        ◦ Prefetch parser by Eric Zimmerman
+    • Regripper 
+        ◦ RegRipper is an open source tool, written in Perl, for extracting/parsing information (keys, values, data) from the Registry and presenting it for analysis
     • browsinghistoryview
         ◦ BrowsingHistoryView is a utility that reads the history data of different Web browsers (Mozilla Firefox, Google Chrome, Internet Explorer, Microsoft Edge, Opera)
     • hashcat
@@ -42,6 +42,14 @@ https://cyberdefenders.org/labs/62
          
          
 ### 1.What is the administrator's username?
+I used `Regripper` to extract the information from the registry hive into readable text file, the files location `Horcrux.E01_Partition 2 [32216MB]_NONAME [NTFS]\[root]\Windows\System32\config\`
+I used the `SOFTWARE` File to get the user profile list 
+
+#### Registry Path:
+> HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList.
+
+![q1](/HireMe/Images/q1.png)
+
 
 ### 2.What is the OS's build number?
 
