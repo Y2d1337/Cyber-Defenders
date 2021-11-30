@@ -237,4 +237,4 @@ I opened the Alpaca Care.docx and inside it there was the domain name
 
 ![q17](/HireMe/Images/q17.png)
 
- > **Flag:     palominoalpacafarm.com **
+ > **Flag:     palominoalpacafarm.com**
