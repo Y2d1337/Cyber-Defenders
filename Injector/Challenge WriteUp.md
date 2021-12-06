@@ -72,7 +72,7 @@ The time zone is in `Pacific Standard Time` format, Places in this zone observe 
 ### 3 	What was the first vulnerability the attacker was able to exploit?
 When I went through the files inside the IMAGE, I notice the folder `xampp`.
 
-#### Explain:
+#### #### Explanation:
 > XAMPP is a software distribution which provides the Apache web server, MySQL database (actually MariaDB), Php and Perl.
 
 `XAMPP `store the access log in `\xampp\apache\logs\access.log`
@@ -91,7 +91,7 @@ So I know that the most common web vulnerabilities are:
 First, i started to search evidence for XSS attack in the access log.
 The common XSS attack are with script tags
 
-#### example:
+#### Example:
 `<script>alert('xss');</script>`
 
 ![q3](/HireMe/Images/q3.png)
@@ -135,7 +135,7 @@ I used the `SOFTWARE` file to get the list of installed Programs
 
 ![q6](/HireMe/Images/q6.png)
 
-#### Explain:
+#### Explanation:
 > XAMPP is a software distribution which provides the Apache web server, MySQL database (actually MariaDB), Php and Perl 
 
 > **Flag: xampp**
@@ -147,12 +147,29 @@ So we know that the webserver program is `XAMPP`.
 
 ![q7](/HireMe/Images/q7.png)
 
-#### Explain:
+#### Explanation:
 > DVWA The Damn Vulnerable Web Application is a software project that intentionally includes security vulnerabilities and is intended for educational purposes.
 
 > **Flag: dvwa**
 
 ### 8 	What is the user agent used in the HTTP requests sent by the SQL injection attack tool?
+
+I searched evidence for SQL injection attack in access.log 
+
+The common SQL injection syntex
+
+#### Example:
+> a'+or+1=1
+
+![q8](/HireMe/Images/q8.png)
+
+I found this line in the log `"GET /dvwa/vulnerabilities/sqli/?id=a%27+or+1%3D1&Submit=Submit"`
+I decoded the data with url decoding and get`"GET/dvwa/vulnerabilities/sqli/?id=a'+or+1=1&Submit=Submit"', this match to SQL injection attempt
+I looked down the log and saw the line `"sqlmap/1.0-dev-nongit-20150902 (http://sqlmap.org)"`
+
+#### Explanation:
+> sqlmap is an open source penetration testing tool that automates the process of detecting and exploiting SQL injection flaws and taking over of database 
+
 
 ### 9 	The attacker read multiple files through LFI vulnerability. One of them is related to network configuration. What is the filename?
 
