@@ -53,7 +53,9 @@ Open the `SOFTWARE` file to get the computer name
 > **Flag: WIN-L0ZZQ76PMUF**
 
 ### 2 	What is the Timezone of the compromised machine? Format: UTC+0 (no-space)
-I used the `SYSTEM` file to get the machine timezone
+I used `Regripper` to extract the information from the registry hive into readable text file, the files location `\Windows\System32\config\`
+
+Open the `SYSTEM` file to get the machine timezone
 
 ### Registry Path:
 > HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation
@@ -70,12 +72,53 @@ The time zone is in `Pacific Standard Time` format, Places in this zone observe 
 ### 3 	What was the first vulnerability the attacker was able to exploit?
 
 ### 4 	What is the OS build number?
+I used `Regripper` to extract the information from the registry hive into readable text file, the files location `\Windows\System32\config\`
+Open the `SOFTWARE` file to get the os build
+
+#### Registry Path:
+> HKEY_LOCAL_MACHINE\software\microsoft\windows nt\currentversion
+
+![q4](/HireMe/Images/q4.png)
+
+> **Flag: 6001**
 
 ### 5 	How many users are on the compromised machine?
+I used `Regripper` to extract the information from the registry hive into readable text file, the files location `\Windows\System32\config\`
+Open the `SAM` file to get the list of the users 
+
+> SAM file is database used to store user account information, including password, account groups, access rights, and special privileges in Windows operating system.
+
+![q5](/HireMe/Images/q5.png)
+
+> **Flag: 4**
 
 ### 6 	What is the webserver package installed on the machine?
+I used `Regripper` to extract the information from the registry hive into readable text file, the files location `\Windows\System32\config\`
+I used the `SOFTWARE` file to get the list of installed Programs
+
+#### Registry Path:
+> For 32bit system: Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall 
+
+> For 64bit system: Software\Microsoft\Windows\CurrentVersion\Uninstall
+
+![q6](/HireMe/Images/q6.png)
+
+#### Explain:
+> XAMPP is a software distribution which provides the Apache web server, MySQL database (actually MariaDB), Php and Perl 
+
+> **Flag: xampp**
 
 ### 7 	What is the name of the vulnerable web app installed on the webserver?
+So we know that the webserver program is `XAMPP`.
+
+`XAMPP` stored the web apps in `\xampp\htdocs`
+
+![q7](/HireMe/Images/q7.png)
+
+#### Explain:
+> DVWA The Damn Vulnerable Web Application is a software project that intentionally includes security vulnerabilities and is intended for educational purposes.
+
+> **Flag: dvwa**
 
 ### 8 	What is the user agent used in the HTTP requests sent by the SQL injection attack tool?
 
