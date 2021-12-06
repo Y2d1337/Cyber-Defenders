@@ -86,7 +86,7 @@ So I know that the most common web vulnerabilities are:
 > SQL injection, also known as SQLI, is a common attack vector that uses malicious SQL code for backend database manipulation to access information that was not intended to be displayed
 
 #### LFI:
-> What is local file inclusion (LFI)? LFI is a web vulnerability caused by mistakes made by a programmer of a website or web application.
+> LFI is local file inclusion? if an LFI vulnerability exists in a website or web application, an attacker can include malicious files that are later run by this website or web application
 
 First, i started to search evidence for XSS attack in the access log.
 The common XSS attack are with script tags
@@ -96,7 +96,11 @@ The common XSS attack are with script tags
 
 ![q3](/HireMe/Images/q3.png)
 
-I found this raw in the log `GET /dvwa/security.php?test=%22><script>eval(window.name)</script> HTTP/1.1" 200 `
+I found this line in the log `GET /dvwa/security.php?test=%22><script>eval(window.name)</script> HTTP/1.1" 200`
+
+The line contain XSS attempt
+
+> **Flag: XSS**
 
 
 ### 4 	What is the OS build number?
