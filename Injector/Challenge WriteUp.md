@@ -86,7 +86,7 @@ So I know that the most common web vulnerabilities are:
 > SQL injection, also known as SQLI, is a common attack vector that uses malicious SQL code for backend database manipulation to access information that was not intended to be displayed
 
 #### LFI:
-> LFI is local file inclusion? if an LFI vulnerability exists in a website or web application, an attacker can include malicious files that are later run by this website or web application
+> Local file inclusion occurs when the web application executes a local files i.e. files on the current server can be included for execution. These files are usually obtained in the form of an HTTP or FTP URI as a user-supplied parameter to the web application. 
 
 First, i started to search evidence for XSS attack in the access log.
 The common XSS attack are with script tags
@@ -170,8 +170,27 @@ I looked down the log and saw the line `"sqlmap/1.0-dev-nongit-20150902 (http://
 #### Explanation:
 > sqlmap is an open source penetration testing tool that automates the process of detecting and exploiting SQL injection flaws and taking over of database 
 
+> **Flag: sqlmap/1.0-dev-nongit-20150902**
 
 ### 9 	The attacker read multiple files through LFI vulnerability. One of them is related to network configuration. What is the filename?
+
+As i explaind before: 
+
+#### LFI:
+> Local file inclusion occurs when the web application executes a local files i.e. files on the current server can be included for execution. These files are usually obtained in the form of an HTTP or FTP URI as a user-supplied parameter to the web application. 
+
+The common LFI attack syntex 
+
+#### Example:
+> ../../../../../etc/passwd%00 - allows an attacker to read the contents of the local /etc/passwd
+
+I searched `./../../../../` in access.log and found `"GET /dvwa/vulnerabilities/fi/?page=../../../../../../windows/system32/drivers/etc/hosts`
+
+![q9](/HireMe/Images/q9.png)
+
+The `hosts` file is a plain text file used to map host names to IP addresses
+
+> **Flag: hosts**
 
 ### 10 The attacker tried to update some firewall rules using netsh command. Provide the value of the type parameter in the executed command?
 
