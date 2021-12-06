@@ -70,6 +70,34 @@ The time zone is in `Pacific Standard Time` format, Places in this zone observe 
 > **Flag: UTC-7**
 
 ### 3 	What was the first vulnerability the attacker was able to exploit?
+When I went through the files inside the IMAGE, I notice the folder `xampp`.
+
+#### Explain:
+> XAMPP is a software distribution which provides the Apache web server, MySQL database (actually MariaDB), Php and Perl.
+
+`XAMPP `store the access log in `\xampp\apache\logs\access.log`
+
+So I know that the most common web vulnerabilities are: 
+
+#### XSS:
+> Cross-Site Scripting (XSS) attacks are a type of injection, in which malicious scripts are injected into otherwise benign and trusted websites
+
+#### SQL:
+> SQL injection, also known as SQLI, is a common attack vector that uses malicious SQL code for backend database manipulation to access information that was not intended to be displayed
+
+#### LFI:
+> What is local file inclusion (LFI)? LFI is a web vulnerability caused by mistakes made by a programmer of a website or web application.
+
+First, i started to search evidence for XSS attack in the access log.
+The common XSS attack are with script tags
+
+#### example:
+`<script>alert('xss');</script>`
+
+![q3](/HireMe/Images/q3.png)
+
+I found this raw in the log `GET /dvwa/security.php?test=%22><script>eval(window.name)</script> HTTP/1.1" 200 `
+
 
 ### 4 	What is the OS build number?
 I used `Regripper` to extract the information from the registry hive into readable text file, the files location `\Windows\System32\config\`
