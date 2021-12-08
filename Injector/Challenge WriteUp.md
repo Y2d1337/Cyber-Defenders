@@ -194,6 +194,7 @@ The `hosts` file is a plain text file used to map host names to IP addresses
 
 ### 10 The attacker tried to update some firewall rules using netsh command. Provide the value of the type parameter in the executed command?
 
+
 ### 11 How many users were added by the attacker?
 
 ### 12 When did the attacker create the first user?
