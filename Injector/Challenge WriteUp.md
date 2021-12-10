@@ -72,7 +72,7 @@ The time zone is in `Pacific Standard Time` format, Places in this zone observe 
 ### 3 	What was the first vulnerability the attacker was able to exploit?
 When I went through the files inside the IMAGE, I notice the folder `xampp`.
 
-#### #### Explanation:
+#### Explanation:
 > XAMPP is a software distribution which provides the Apache web server, MySQL database (actually MariaDB), Php and Perl.
 
 `XAMPP `store the access log in `\xampp\apache\logs\access.log`
@@ -163,9 +163,9 @@ The common SQL injection syntex
 
 ![q8](/Injector/Images/q8.png)
 
-I found this line in the log `"GET /dvwa/vulnerabilities/sqli/?id=a%27+or+1%3D1&Submit=Submit"`
-I decoded the data with url decoding and get`"GET/dvwa/vulnerabilities/sqli/?id=a'+or+1=1&Submit=Submit"', this match to SQL injection attempt
-I looked down the log and saw the line `"sqlmap/1.0-dev-nongit-20150902 (http://sqlmap.org)"`
+I found this line in the log `GET /dvwa/vulnerabilities/sqli/?id=a%27+or+1%3D1&Submit=Submit`
+I decoded the data with url decoding and get`GET/dvwa/vulnerabilities/sqli/?id=a'+or+1=1&Submit=Submit', this match to SQL injection attempt
+I looked down the log and saw the line `sqlmap/1.0-dev-nongit-20150902 (http://sqlmap.org)`
 
 #### Explanation:
 > sqlmap is an open source penetration testing tool that automates the process of detecting and exploiting SQL injection flaws and taking over of database 
