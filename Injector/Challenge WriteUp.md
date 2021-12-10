@@ -186,7 +186,7 @@ The common LFI attack syntex
 
 I searched `./../../../../` in access.log and found `"GET /dvwa/vulnerabilities/fi/?page=../../../../../../windows/system32/drivers/etc/hosts`
 
-![q9](/HireMe/Images/q9.png)
+![q9](/Injector/Images/q9.png)
 
 The `hosts` file is a plain text file used to map host names to IP addresses
 
