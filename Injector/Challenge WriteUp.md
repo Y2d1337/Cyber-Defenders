@@ -1,5 +1,5 @@
 # Injector Challenge
-![This is an image](/HireMe/Images/hiremehead.png)
+![This is an image](/Injector/Images/Injectorhead.png)
 
 ## Challenge Link
 https://cyberdefenders.org/labs/23
@@ -48,7 +48,7 @@ Open the `SOFTWARE` file to get the computer name
 #### Registry Path:
 > HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\ComputerName\ComputerName
 
-![q1](/HireMe/Images/q1.png)
+![q1](/Injector/Images/q1.png)
 
 > **Flag: WIN-L0ZZQ76PMUF**
 
@@ -60,7 +60,7 @@ Open the `SYSTEM` file to get the machine timezone
 ### Registry Path:
 > HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation
 
-![q2](/HireMe/Images/q2.png)
+![q2](/Injector/Images/q2.png)
 
 The time zone is in `Pacific Standard Time` format, Places in this zone observe standard time by subtracting eight hours from Coordinated Universal Time (UTC−08:00). During daylight saving time, a time offset of UTC−07:00 is used. 
 
@@ -94,7 +94,7 @@ The common XSS attack are with script tags
 #### Example:
 `<script>alert('xss');</script>`
 
-![q3](/HireMe/Images/q3.png)
+![q3](/Injector/Images/q3.png)
 
 I found this line in the log `GET /dvwa/security.php?test=%22><script>eval(window.name)</script> HTTP/1.1" 200`
 
@@ -110,7 +110,7 @@ Open the `SOFTWARE` file to get the os build
 #### Registry Path:
 > HKEY_LOCAL_MACHINE\software\microsoft\windows nt\currentversion
 
-![q4](/HireMe/Images/q4.png)
+![q4](/Injector/Images/q4.png)
 
 > **Flag: 6001**
 
@@ -120,7 +120,7 @@ Open the `SAM` file to get the list of the users
 
 > SAM file is database used to store user account information, including password, account groups, access rights, and special privileges in Windows operating system.
 
-![q5](/HireMe/Images/q5.png)
+![q5](/Injector/Images/q5.png)
 
 > **Flag: 4**
 
@@ -133,7 +133,7 @@ I used the `SOFTWARE` file to get the list of installed Programs
 
 > For 64bit system: Software\Microsoft\Windows\CurrentVersion\Uninstall
 
-![q6](/HireMe/Images/q6.png)
+![q6](/Injector/Images/q6.png)
 
 #### Explanation:
 > XAMPP is a software distribution which provides the Apache web server, MySQL database (actually MariaDB), Php and Perl 
@@ -145,7 +145,7 @@ So we know that the webserver program is `XAMPP`.
 
 `XAMPP` stored the web apps in `\xampp\htdocs`
 
-![q7](/HireMe/Images/q7.png)
+![q7](/Injector/Images/q7.png)
 
 #### Explanation:
 > DVWA The Damn Vulnerable Web Application is a software project that intentionally includes security vulnerabilities and is intended for educational purposes.
@@ -161,7 +161,7 @@ The common SQL injection syntex
 #### Example:
 > a'+or+1=1
 
-![q8](/HireMe/Images/q8.png)
+![q8](/Injector/Images/q8.png)
 
 I found this line in the log `"GET /dvwa/vulnerabilities/sqli/?id=a%27+or+1%3D1&Submit=Submit"`
 I decoded the data with url decoding and get`"GET/dvwa/vulnerabilities/sqli/?id=a'+or+1=1&Submit=Submit"', this match to SQL injection attempt
