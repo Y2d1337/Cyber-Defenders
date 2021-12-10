@@ -199,7 +199,7 @@ I used `Volatility` to investigate the `memdump.mem`
 
 The first thing i did is to find to memory profile with the command 
 
-> vol.py -f /home/sansforensics/Downloads/memdump.mem imageinfo
+`vol.py -f /home/sansforensics/Downloads/memdump.mem imageinfo`
 
 ![q10](/Injector/Images/vol-imageinfo.png)
 
@@ -208,9 +208,11 @@ After i found the right profile i used `cmdscan`
 #### Explanation:
 > The cmdscan plugin searches the memory of csrss.exe Windows for commands that attackers entered through a console shell (cmd.exe).
 
-> vol.py -f /home/sansforensics/Downloads/memdump.mem --profile=VistaSP2x86 cmdscan
+`vol.py -f /home/sansforensics/Downloads/memdump.mem --profile=VistaSP2x86 cmdscan`
 
-![q10](/Injector/Images/vol-cmdscan.png.png)
+![q11](/Injector/Images/vol-cmdscan.png)
+
+
 
 > **Flag: remotedesktop**
 
