@@ -195,20 +195,39 @@ The `hosts` file is a plain text file used to map host names to IP addresses
 ### 10 The attacker tried to update some firewall rules using netsh command. Provide the value of the type parameter in the executed command?
 
 
+> **Flag: remotedesktop**
+
 ### 11 How many users were added by the attacker?
+
+
+> **Flag: 2**
 
 ### 12 When did the attacker create the first user?
 
+> **Flag:  2015-09-02 09:05:06 UTC **
+
 ### 13 What is the NThash of the user's password set by the attacker?
+
+> **Flag: 817875ce4794a9262159186413772644**
 
 ### 14 What is The MITRE ID corresponding to the technique used to keep persistence?
 
+> **Flag:  T1136.001**
+
 ### 15 The attacker uploaded a simple command shell through file upload vulnerability. Provide the name of the URL parameter used to execute commands?
+
+> **Flag: cmd**
 
 ### 16 One of the uploaded files by the attacker has an md5 that starts with "559411". Provide the full hash.
 
+> **Flag: 5594112b531660654429f8639322218b**
+
 ### 17 The attacker used Command Injection to add user "hacker" to the "Remote Desktop Users" Group. Provide the IP address that was part of the executed command?
 
+> **Flag:  192.168.56.102**
+
 ### 18 The attacker dropped a shellcode through SQLi vulnerability. The shellcode was checking for a specific version of PHP. Provide the PHP version number?
+
+> **Flag:  4.1.0**
 
          
