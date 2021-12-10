@@ -193,6 +193,16 @@ The `hosts` file is a plain text file used to map host names to IP addresses
 > **Flag: hosts**
 
 ### 10 The attacker tried to update some firewall rules using netsh command. Provide the value of the type parameter in the executed command?
+After i searched at the access.log i didn't find any mention of using the `netsh` command, so i decided to investigate the memory file
+
+I used `Volatility` to investigate the `memdump.mem`
+
+The first thing i did is to find to memory profile with the command 
+
+> vol.py -f /home/sansforensics/Downloads/memdump.mem imageinfo
+
+![q9](/Injector/Images/vol-imageinfo.png)
+
 
 
 > **Flag: remotedesktop**
