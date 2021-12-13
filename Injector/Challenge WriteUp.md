@@ -197,39 +197,84 @@ After i searched at the access.log i didn't find any mention of using the `netsh
 
 I used `Volatility` to investigate the `memdump.mem`
 
-The first thing i did is to find to memory profile with the command 
+The first thing i did is to find the memory profile.
 
 `vol.py -f /home/sansforensics/Downloads/memdump.mem imageinfo`
 
 ![q10](/Injector/Images/vol-imageinfo.png)
 
-After i found the right profile i used `cmdscan`
+After i found the right profile i used `cmdscan` plugin
 
 #### Explanation:
 > The cmdscan plugin searches the memory of csrss.exe Windows for commands that attackers entered through a console shell (cmd.exe).
 
 `vol.py -f /home/sansforensics/Downloads/memdump.mem --profile=VistaSP2x86 cmdscan`
 
-![q11](/Injector/Images/vol-cmdscan.png)
+![q10a](/Injector/Images/vol-cmdscan.png)
 
+we saw alots of netsh commands ran from cmd
 
+`netsh firewall set service type=remotedesktop mode=enable scope=subnet`
+
+#### Explanation:
+> netsh firewall set service  - Set firewall service configuration
+> 
+> type - Service type - REMOTEDESKTOP - Remote assistance and remote desktop
+> 
+> mode - Service mode -   ENABLE  - Allow through firewall
+> 
+> scope - Service scope -  SUBNET - Allow only local network (subnet) traffic through firewall
+> 
+
+The command is used to open the `RDP` service in `Windows Firewall`
 
 > **Flag: remotedesktop**
 
 ### 11 How many users were added by the attacker?
+ To find the users on the muchine used the `SAM` file
+ first i ran the `hivelist` command 
+ 
+  
+ #### Explanation:
+ > To locate the virtual addresses of registry hives in memory, and the full paths to the corresponding hive on disk, use the `hivelist` command. If you want to print values from a certain hive, run this command first so you can see the address of the hives.
+ 
+ `vol.py -f /home/sansforensics/Downloads/memdump.mem --profile=VistaSP2x86 hivelist`
+ 
+#### Explanation:
+> The `hashdump` plugin extract and decrypt cached domain credentials stored in the registry, use the hashdump command. 
+To use hashdump, pass the virtual address of the SYSTEM hive as -y and the virtual address of the SAM hive as -s.
 
+`vol.py -f /home/sansforensics/Downloads/memdump.mem --profile=VistaSP2x86 hashdump -y 0x86226008 -s 0x87b7d008`
+
+![q11](/Injector/Images/vol-hashdump.png)
+
+Four users are found, two of them are windows default users..
 
 > **Flag: 2**
 
 ### 12 When did the attacker create the first user?
 
+I opened the `SAM` file to get the time the users account created.
+
+> SAM file is database used to store user account information, including password, account groups, access rights, and special privileges in Windows operating system.
+
+![q5](/Injector/Images/q5.png)
+
 > **Flag:  2015-09-02 09:05:06 UTC **
 
 ### 13 What is the NThash of the user's password set by the attacker?
 
+The `SAM` file conatin the LM hash and a NThash
+
+![q13](/Injector/Images/q13.png)
+
 > **Flag: 817875ce4794a9262159186413772644**
 
 ### 14 What is The MITRE ID corresponding to the technique used to keep persistence?
+
+I searched for local Account creation and got
+
+https://attack.mitre.org/techniques/T1136/001/
 
 > **Flag:  T1136.001**
 
