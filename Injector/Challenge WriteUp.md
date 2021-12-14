@@ -217,8 +217,11 @@ The command is used to open the `RDP` service in `Windows Firewall`
 > **Flag: remotedesktop**
 
 ### 11 How many users were added by the attacker?
- To find the users on the muchine used the `SAM` file
- First i ran the `hivelist` command 
+
+To find the users on the machine used the `SAM` file 
+
+First i ran the `hivelist` command 
+ 
   
  #### Explanation:
  > To locate the virtual addresses of registry hives in memory, and the full paths to the corresponding hive on disk, use the `hivelist` command. If you want to print values from a certain hive, run this command first so you can see the address of the hives.
@@ -268,14 +271,14 @@ Because i am familiar with web shells, i know there is simple php web shell that
 
 ![q15a](/Injector/Images/q15a.png)
 
-So i search for `cmd=` in the access log.
+So i searched for `cmd=` in the access log.
 
 ![q15](/Injector/Images/q15.png)
 
 > **Flag: cmd**
 
 ### 16 One of the uploaded files by the attacker has an md5 that starts with "559411". Provide the full hash.
-I used FTK Imager to see all the file in vulnerable Web Application folder.
+I used FTK Imager to see all the files in vulnerable Web Application folder.
 
 ![q16](/Injector/Images/q16.png)
 
