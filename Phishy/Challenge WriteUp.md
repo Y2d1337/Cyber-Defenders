@@ -50,7 +50,6 @@ Or you can just open any EVTX File (Windows Event Viewer) to see the hostname
 
 ![q1](/Phishy/Images/q1.png)
 
-
 > **Flag: WIN-NF3JQEU4G0T**
 
 ### 2.What is the messaging app installed on the victim machine?
@@ -61,12 +60,10 @@ But I didn't see nothing that related to messaging app
 I assumed that user downloaded the messaging app from the internet, so i accessed his  download folder
 `Users\Semah\Downloads`
 
-
 ![q2](/Phishy/Images/q2.png)
 
 
 > **Flag: Whatsapp**
-
 
 ### 3.The attacker tricked the victim into downloading a malicious document. Provide the full download URL.
 From look at `c:\users\Semah\appdata\local` I saw that mozilla firefox is installed so I used the tools `mzcacheview & mzhistoryview` to see the browser history and cache, I search for document evidence but nothing found
@@ -74,7 +71,6 @@ So I decide to recover WhatsApp massage the user received,
 To do it I extracted the `msgstore.db` from WhatsApp database folder using `FTK IMAGER`
 `\Users\Semah\AppData\Roaming\WhatsApp\Databases\`
 I opened the file using the tool WhatsApp viewer and located the massage with the URL
-
 
 
 ![q3](/Phishy/Images/q3.png)
@@ -85,9 +81,7 @@ I opened the file using the tool WhatsApp viewer and located the massage with th
 ### 4.Multiple streams contain macros in the document. Provide the number of the highest stream.
 To see all streams in the doc file I used `oledump` tool , the highest stream is 10
 
-
 ![q4](/Phishy/Images/q4.PNG)
-
 
 > **Flag: 10**
 
