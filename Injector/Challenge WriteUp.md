@@ -279,10 +279,21 @@ https://attack.mitre.org/techniques/T1136/001/
 > **Flag:  T1136.001**
 
 ### 15 The attacker uploaded a simple command shell through file upload vulnerability. Provide the name of the URL parameter used to execute commands?
+Because i am familiar with web shells, i know there is simple php web shell that work by execute commands that are being passed through ‘cmd’ HTTP request GET parameter.
+
+![q15a](/Injector/Images/q15a.png)
+
+
+So i search for `cmd=` in the access log.
+
+![q15](/Injector/Images/q15.png)
 
 > **Flag: cmd**
 
 ### 16 One of the uploaded files by the attacker has an md5 that starts with "559411". Provide the full hash.
+
+
+![q16](/Injector/Images/q16.png)
 
 > **Flag: 5594112b531660654429f8639322218b**
 
