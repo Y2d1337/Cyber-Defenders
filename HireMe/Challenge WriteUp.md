@@ -40,9 +40,7 @@ https://cyberdefenders.org/labs/62
  ## Questions:       
          
 ### 1.What is the administrator's username?
-I used `Regripper` to extract the information from the registry hive into readable text file, the files location `Horcrux.E01_Partition 2 [32216MB]_NONAME [NTFS]\[root]\Windows\System32\config\`
-
-I used the `SAM` file to get the users in administrators localgroup
+I used Regripper to extract the information from the `SAM` file into readable text file, the files location \Windows\System32\config\
 
 > SAM file is database used to store user account information, including password, account groups, access rights, and special privileges in Windows operating system.
 
@@ -62,12 +60,11 @@ To see the user behind the `SID` i used the `SOFTWARE` file to get the user prof
 
 The `SID S-1-5-21-1649836244-3544936428-1548601679-1001` belong to the user karen
 
-
 > **Flag: Karen**
 
 
 ### 2.What is the OS's build number?
-I used the `SOFTWARE` file to get the os build
+I used Regripper to extract the information from the `SOFTWARE` file into readable text file, the files location \Windows\System32\config\
 
 #### Registry Path:
 > HKEY_LOCAL_MACHINE\software\microsoft\windows nt\currentversion
@@ -78,7 +75,7 @@ I used the `SOFTWARE` file to get the os build
 > **Flag: 16299**
 
 ### 3.What is the hostname of the computer?
-I used the `SOFTWARE` file to get the hostname of the computer
+I used Regripper to extract the information from the `SOFTWARE` file into readable text file, the files location \Windows\System32\config\
 
 #### Registry Path:
 > HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\ComputerName\ComputerName
