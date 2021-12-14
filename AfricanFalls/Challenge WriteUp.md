@@ -58,7 +58,7 @@ When i was looking at john chrome history i saw he search to download `FileZilla
 
 FileZilla have configuration file that contain information about recenets servers used.
 
-`01Win10.e01_Partition 2_[50647MB]_NONAME{[NTFS]\[root]\Users\John Doe\AppData\Roaming\FileZilla\`
+`\Users\John Doe\AppData\Roaming\FileZilla\`
 
 In that folder was the file `recentservers.xml`
 
