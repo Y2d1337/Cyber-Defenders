@@ -8,3 +8,4 @@ Completed Challenges:
 - HireMe
 - Phishy
 - Injector
+- Bucket
