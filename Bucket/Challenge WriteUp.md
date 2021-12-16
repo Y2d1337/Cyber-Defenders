@@ -65,7 +65,7 @@ Now we can use the AWS CLI to execute command on our s3 bucket
 > **Flag: aws configure**
 
 ### 2.What is the 'creation' date of the bucket 'flaws2-logs'?
-To see the information about the bucket 'flaws2-logs` i ran the command `aws s3 ls` on AWS CLI
+To see the information about the bucket `flaws2-logs` i ran the command `aws s3 ls` on AWS CLI
  
 ![q2](/Bucket/Images/q2.png)
  
@@ -73,7 +73,7 @@ To see the information about the bucket 'flaws2-logs` i ran the command `aws s3 
  > **Flag: 2018-11-19 20:54:31 UTC**
  
 ### 3.What is the name of the first generated event -according to time?
- To see the all logs from the bucket 'flaws2-logs i ran the command
+ To see the all logs from the bucket `flaws2-logs` i ran the command
  
 `aws s3 ls flaws2-logs/AWSLogs/653711331788/CloudTrail/us-east-1/2018/11/28/`
 
@@ -126,4 +126,4 @@ I checked them on whois site to see the owenr
   
  I compared the results to the relevant date. 
  
- > **Flag:  1 CreateLogStream**
+ > **Flag:  CreateLogStream**
