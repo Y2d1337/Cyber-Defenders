@@ -90,7 +90,7 @@ I search for the event using `notepad++`
  Using `notepad++` advanced search `find in files` to search in all the logs for the IP address
 
 #### Example:
-~search menu-->find in files
+> search menu-->find in files
 
 ![q4a](/Bucket/Images/findinfiles.png)
 
@@ -122,7 +122,7 @@ I checked them on whois site to see the owenr
  ### 7.What was the first request issued by the user 'level1'?
   Using  `find in files` to search for `level1` 
   
-  ![q7](/Bucket/Images/q7.png)
+ ![q7](/Bucket/Images/q7.png)
   
  I compared the results to the relevant date. 
  
