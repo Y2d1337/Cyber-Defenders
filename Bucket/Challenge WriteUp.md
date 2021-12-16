@@ -39,7 +39,7 @@ The credentials above give you access to the Security account, which can assume 
         ◦ Notepad++ is a free (as in “free speech” and also as in “free beer”) source code editor and Notepad replacement that supports several languages
               
 
- ## Questions:    
+## Questions:    
  ### 1.What is the full AWS CLI command used to configure credentials? 
  I used AWS CLI for windows to get the logs from the s3 bucket.
  
@@ -64,11 +64,66 @@ Now we can use the AWS CLI to execute command on our s3 bucket
 
 > **Flag: aws configure**
 
- ### 2.What is the 'creation' date of the bucket 'flaws2-logs'?
+### 2.What is the 'creation' date of the bucket 'flaws2-logs'?
+To see the information about the bucket 'flaws2-logs` i ran the command `aws s3 ls` on AWS CLI
+ 
+![q2](/Bucket/Images/q2.png)
  
  
- ### 3.What is the name of the first generated event -according to time?
- ### 4.What source IP address generated the event dated 2018-11-28 at 23:03:20 UTC?
- ### 5.Which IP address does not belong to Amazon AWS infrastructure?
+ > **Flag: 2018-11-19 20:54:31 UTC**
+ 
+### 3.What is the name of the first generated event -according to time?
+ To see the all logs from the bucket 'flaws2-logs i ran the command
+ 
+`aws s3 ls flaws2-logs/AWSLogs/653711331788/CloudTrail/us-east-1/2018/11/28/`
+
+![q3](/Bucket/Images/awscli-ls.png)
+ 
+The first generated log is `653711331788_CloudTrail_us-east-1_20181128T2235Z_cR9ra7OH1rytWyXY.json`
+I search for the event using `notepad++`
+
+![q3a](/Bucket/Images/q3.png)
+  
+ > **Flag: AssumeRole**
+  
+### 4.What source IP address generated the event dated 2018-11-28 at 23:03:20 UTC?
+ Using `notepad++` advanced search `find in files` to search in all the logs for the IP address
+
+#### Example:
+~search menu-->find in files
+
+![q4a](/Bucket/Images/findinfiles.png)
+
+I searched for`sourceIPAddress` and get two results 
+ 
+![q4](/Bucket/Images/q4.png)
+ 
+I compared the results to the relevant date. 
+
+> **Flag:  34.234.236.212**
+  
+### 5.Which IP address does not belong to Amazon AWS infrastructure?
+I got two ip address ~34.234.236.212~ and ~104.102.221.250~
+I checked them on whois site to see the owenr
+
+34.234.236.0/22 belong to  AS14618  ·  Amazon.com, Inc. 
+
+104.102.221.250 belong to  ASN 	AS16625 - Akamai Technologies, Inc.
+
+> **Flag:  104.102.221.250**
+ 
  ### 6.Which user issued the 'ListBuckets' request?
+ Using  `find in files` to search for `ListBuckets`
+ 
+ ![q6](/Bucket/Images/q6.png)
+ 
+ > **Flag:  level3**
+
  ### 7.What was the first request issued by the user 'level1'?
+  Using  `find in files` to search for `level1` 
+  
+  ![q7](/Bucket/Images/q7.png)
+  
+ I compared the results to the relevant date. 
+ 
+ > **Flag:  1 CreateLogStream**
