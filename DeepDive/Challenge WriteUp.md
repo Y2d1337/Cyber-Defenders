@@ -108,6 +108,16 @@ Now we search the hash in virustotal
 > **Flag:  Emotet**
 
 ### 7 The malicious process had two PEs injected into its memory. What's the size in bytes of the Vad that contains the largest injected PE? Answer in hex, like: 0xABC
+To find the two injected PEs i used `malfind`.
+
+#### Explanation:
+>malfind - Find hidden and injected code, based on characteristics such as VAD tag and page permissions.
+
+#### Commandline:
+`vol.py -f /home/sansforensics/Desktop/banking-malware.vmem --profile=Win7SP1x64_24000 malfind -o 0x000000007d336950`
+
+![q7a](/DeepDive/Images/q7a.png)
+
 ### 8 This process was unlinked from the ActiveProcessLinks list. Follow its forward link. Which process does it lead to? Answer with its name and extension
 ### 9 What is the pooltag of the malicious process in ascii? (HINT: use volshell)
 ### 10 What is the physical address of the hidden executable's pooltag? (HINT: use volshell)
