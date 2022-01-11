@@ -46,7 +46,7 @@ To get the KDBG virtual address i used volatility plugin `kdbgscan`
 > **Flag: 0xf80002bef120**
 
 ### 3 There is a malicious process running, but it's hidden. What's its name?
-To find the hidden process we need to use `psxview`,this plugin compares the active processes indicated within `psActiveProcessHead` with any other possible sources within the memory image.
+To find the hidden process we need to use `psxview`,this plugin helps you detect hidden processes by comparing what PsActiveProcessHead contains with what is reported by various other sources of process listings
 
 A False within the column indicates that the process is not found in that area
 
@@ -61,7 +61,7 @@ A False within the column indicates that the process is not found in that area
 > **Flag:  vds_ps.exe**
 
 ### 4 What is the physical offset of the malicious process?
-`psxview` plugin shows the physical address of each process, so we can looked at 3rd questions output/
+`psxview` plugin shows the physical address of each process, so we can looked at 3rd questions output.
 
 ![q4](/DeepDive/Images/q4.png)
 
@@ -80,9 +80,18 @@ To find the full path of the hidden executable we need to use `filescan` plugin
 
 > **Flag:  C:\Users\john\AppData\Local\api-ms-win-service-management-l2-1-0\vds_ps.exe**
 
-
-
 ### 6 Which malware is this?
+To find the malware type, i dumped the exe file from the memory and check his hash in virustotal.
+We need to use the process physical offset NOT his PID. because he dont shows up on `pslist` and `psscan`
+
+#### Explanation:
+>dumpfiles - Extract memory mapped and cached files
+
+#### Commandline:
+`vol.py -f /home/sansforensics/Desktop/banking-malware.vmem --profile=Win7SP1x64_24000 dumpfiles  | grep vds_ps.exe` 
+
+![q6a](/DeepDive/Images/q6a.png)
+
 ### 7 The malicious process had two PEs injected into its memory. What's the size in bytes of the Vad that contains the largest injected PE? Answer in hex, like: 0xABC
 ### 8 This process was unlinked from the ActiveProcessLinks list. Follow its forward link. Which process does it lead to? Answer with its name and extension
 ### 9 What is the pooltag of the malicious process in ascii? (HINT: use volshell)
