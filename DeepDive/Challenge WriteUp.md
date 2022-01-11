@@ -82,15 +82,30 @@ To find the full path of the hidden executable we need to use `filescan` plugin
 
 ### 6 Which malware is this?
 To find the malware type, i dumped the exe file from the memory and check his hash in virustotal.
-We need to use the process physical offset NOT his PID. because he dont shows up on `pslist` and `psscan`
+We need to use the process physical offset from the filescan results NOT the PID. 
+
+Because the process is hidden and dont shows up on `pslist` and `psscan`
 
 #### Explanation:
 >dumpfiles - Extract memory mapped and cached files
 
 #### Commandline:
-`vol.py -f /home/sansforensics/Desktop/banking-malware.vmem --profile=Win7SP1x64_24000 dumpfiles  | grep vds_ps.exe` 
+`vol.py -f /home/sansforensics/Desktop/banking-malware.vmem --profile=Win7SP1x64_24000 dumpfiles -Q 0x000000007d0d57e0 --dump-dir=/home/sansforensics/Desktop/dump` 
 
 ![q6a](/DeepDive/Images/q6a.png)
+
+After we get the file lets get his md5 hash
+
+#### Commandline:
+`md5sum vds_ps.exe`
+
+![q6b](/DeepDive/Images/q6b.png)
+
+Now we search the hash in virustotal
+
+![q6](/DeepDive/Images/q6.png)
+
+> **Flag:  Emotet**
 
 ### 7 The malicious process had two PEs injected into its memory. What's the size in bytes of the Vad that contains the largest injected PE? Answer in hex, like: 0xABC
 ### 8 This process was unlinked from the ActiveProcessLinks list. Follow its forward link. Which process does it lead to? Answer with its name and extension
