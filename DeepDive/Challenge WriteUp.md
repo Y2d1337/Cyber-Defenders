@@ -20,7 +20,29 @@ https://cyberdefenders.org/labs/78
          
 ## Questions:  
 ### 1 What profile should you use for this memory sample?
+To determine the image profile i used volatility plugin `imageinfo`  
+
+#### Explanation:
+>imageinfo- Identify information for the image
+
+#### Commandline:
+`vol.py -f /home/sansforensics/Desktop/banking-malware.vmem imageinfo`
+
+![q1](/Injector/Images/q1.png)
+
+> **Flag: Win7SP1x64_24000**
+
 ### 2 What is the KDBG virtual address of the memory sample?
+To get the KDBG virtual address i used volatility plugin `kdbgscan`
+
+#### Explanation:
+>kdbgscan - Search for and dump potential KDBG values
+
+#### Commandline:
+`vol.py -f /home/sansforensics/Desktop/banking-malware.vmem kdbgscan`
+
+![q2](/Injector/Images/q2.png)
+
 ### 3 There is a malicious process running, but it's hidden. What's its name?
 ### 4 What is the physical offset of the malicious process?
 ### 5 What is the full path (including executable name) of the hidden executable?
