@@ -143,5 +143,11 @@ We can see the largest number is `225279`,i convert the decimal to hexadecimal a
 > **Flag:  0x36FFF**
 
 ### 8 This process was unlinked from the ActiveProcessLinks list. Follow its forward link. Which process does it lead to? Answer with its name and extension
+This question was really pain in the a** ,i spended hours without success..
+So i used `Mohamed Labib` [walkthrough](https%3A%2F%2Fdetectivestrings.github.io%2Fwalkthrough%2Fcyberdefenders%2Fmemory%2520forensics%2Fdfir%2FDeepDive%2F%238--this-process-was-unlinked-from-the-activeprocesslinks-list-follow-its-forward-link-which-process-does-it-lead-to-answer-with-its-name-and-extension)
+
+
+ 
+ 
 ### 9 What is the pooltag of the malicious process in ascii? (HINT: use volshell)
 ### 10 What is the physical address of the hidden executable's pooltag? (HINT: use volshell)
