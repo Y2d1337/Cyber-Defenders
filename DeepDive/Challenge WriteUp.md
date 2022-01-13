@@ -119,8 +119,8 @@ So i looked for `PAGE_EXECUTE_WRITECOPY` or `PAGE_EXECUTE_READWRITE` in `VadS` p
 
 ![q7a](/DeepDive/Images/q7a.png)
 
-We can see there are two executables injected (`MZ` header) into alicious process memory.
-We need to get `VAD` info of the executables to calculate the size between the start and end using the plugin `vadinfo`.
+We can see there are two executables injected (`MZ` header) into malicious process memory.
+We need to get `VAD` info from the executables to calculate the size between the start and end using the plugin `vadinfo`.
 
 #### Explanation:
 >vadinfo - Dump the VAD info
@@ -131,6 +131,16 @@ We need to get `VAD` info of the executables to calculate the size between the s
 `vol.py -f /home/sansforensics/Desktop/banking-malware.vmem --profile=Win7SP1x64_24000 vadinfo -a 0x2a10000 -o 0x000000007d336950`
 
 ![q7](/DeepDive/Images/q7.png)
+
+Now we calculate the size of each `VAD `(end subtract start) to get largest number
+
+![q7c](/DeepDive/Images/q7c.png)
+
+We can see the largest number is `225279`,i convert the decimal to hexadecimal and add `0x`
+
+![q7b](/DeepDive/Images/q7b.png)
+
+> **Flag:  0x36FFF**
 
 ### 8 This process was unlinked from the ActiveProcessLinks list. Follow its forward link. Which process does it lead to? Answer with its name and extension
 ### 9 What is the pooltag of the malicious process in ascii? (HINT: use volshell)
