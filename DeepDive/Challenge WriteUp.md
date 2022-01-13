@@ -206,9 +206,38 @@ Then i ran
 
 `vol.py --plugins="plug/" -f banking-malware.vmem --profile Win7SP1x64_24000 getprocbyaclin -t 0xfffffa800397dc88`
  
- ![q8b](/DeepDive/Images/q8b.png)
+![q8b](/DeepDive/Images/q8b.png)
  
  > **Flag:   SearchIndexer.exe**
  
 ### 9 What is the pooltag of the malicious process in ascii? (HINT: use volshell)
+First we need to know about Pool allocation 
+
+![q9](/DeepDive/Images/q9.png)
+
+Page is structed of:
+-pool_header with size of 0x10 byte.
+-Optional_header size is deffrent from one to another.
+-object_header with size 0x30 bytes.
+-object_body with size of the object type itself.
+
+ We need to go up by 0x30 byte in order to change the context to object_header struct.
+ 
+#### Commandlines:
+`vol.py -f /home/sansforensics/Desktop/banking-malware.vmem --profile=Win7SP1x64_24000 volshell`
+
+`cc(offset=0x000000007d336950 , phyiscal=True)`
+
+Then we will get object header context by going up 0x30 byte:
+
+`dt( "_OBJECT_HEADER" , 0x000000007d336950-0x30 , space=addrspace().base)`
+
+The pool_header start pointer is at 0x000000007d336950 -0x30 -0x10 -0x20.
+
+`dt( "_POOL_HEADER" , 0x000000007d336950-0x30-0x10-0x20 , space=addrspace().base)`
+
+
+
 ### 10 What is the physical address of the hidden executable's pooltag? (HINT: use volshell)
+
+
