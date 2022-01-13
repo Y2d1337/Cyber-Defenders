@@ -236,8 +236,24 @@ The pool_header start pointer is at 0x000000007d336950 -0x30 -0x10 -0x20.
 
 `dt( "_POOL_HEADER" , 0x000000007d336950-0x30-0x10-0x20 , space=addrspace().base)`
 
+![q9b](/DeepDive/Images/q9b.png)
 
+we need convert the pooltag to 4 byte string in reverse order.
+
+first i convert the decimal to hexadecimal and add `0x`
+![q9d](/DeepDive/Images/q9d.png)
+
+Then convert the pooltag to 4 byte string in reverse order
+![q9c](/DeepDive/Images/q9c.png)
+
+ > **Flag:   R0oT.exe**
 
 ### 10 What is the physical address of the hidden executable's pooltag? (HINT: use volshell)
+We need to add 4 bytes to the pool_header physical address.
+
+![q10](/DeepDive/Images/q10.png)
+
+
+
 
 
