@@ -144,10 +144,71 @@ We can see the largest number is `225279`,i convert the decimal to hexadecimal a
 
 ### 8 This process was unlinked from the ActiveProcessLinks list. Follow its forward link. Which process does it lead to? Answer with its name and extension
 This question was really pain in the a** ,i spended hours without success..
-So i used `Mohamed Labib` [walkthrough](https%3A%2F%2Fdetectivestrings.github.io%2Fwalkthrough%2Fcyberdefenders%2Fmemory%2520forensics%2Fdfir%2FDeepDive%2F%238--this-process-was-unlinked-from-the-activeprocesslinks-list-follow-its-forward-link-which-process-does-it-lead-to-answer-with-its-name-and-extension)
 
+So as a last resort i used `Mohamed Labib` [walkthrough](https://detectivestrings.github.io/walkthrough/cyberdefenders/memory%20forensics/dfir/DeepDive/#8--this-process-was-unlinked-from-the-activeprocesslinks-list-follow-its-forward-link-which-process-does-it-lead-to-answer-with-its-name-and-extension)
 
+We need to use `volshell` to get the answer
+
+#### Explanation:
+>volshell - Shell in the memory image
+
+#### Commandlines:
+`vol.py -f /home/sansforensics/Desktop/banking-malware.vmem --profile=Win7SP1x64_24000 volshell`
+
+we need to changes the current shell context to to the process specified.
+
+`cc(offset=0x000000007d336950 , phyiscal=True)`
+
+get the ActiveProcessLink value of the next process
+
+`proc().ActiveProcessLinks.Flink`
+
+![q8a](/DeepDive/Images/q8a.png)
+
+After we get the pointer address we need extract the process name.
+
+I used the plugin `Mohamed Labib` developed
+
+```python
+import  volatility . plugins . common  as  common
+import  volatility . plugins . registry . registryapi  as  registryapi
+import  volatility . utils  as  utils
+import  volatility . win32  as  win32
  
+class  GetProcByAcLin(common.AbstractWindowsCommand):
+         """ Get ActiveP list T """
+         def  __init__( self ,  config ,  *args ,  **kwargs ):
+                 common.AbstractWindowsCommand.__init__( self ,  config ,  *args ,  **kwargs )
+                 self._config.add_option ( 'Search' , short_option = 't' , default = None , help = 'Ac Point Search For', action = 'store' )
+         def  calculate(self):
+                 addr_space = utils.load_as(self._config)
+                 tasks = win32.tasks.pslist(addr_space)
+                 T  =  self._config.Search
+                 return T , tasks
+         def  render_text( self ,  outfd ,  data ):
+                 T , tas = data
+                 try :
+                         ishex  = T.find("0x")
+                         ishex2 = T.find("0X")
+                         if(ishex>-1 or ishex2>-1 ):
+                                 T = int(T, 16)
+                         else :
+                                 T = int(T)
+                         for i in tas :
+                                 AcLin = i.ActiveProcessLinks
+                                 if T == AcLin :
+                                         print (i.ImageFileName)
+                 except :
+                         print("ActiveProcessLinks is a memory location : use number" )
+```
+
+Then i ran
+
+`vol.py --plugins="plug/" -f banking-malware.vmem --profile Win7SP1x64_24000 getprocbyaclin -t 0xfffffa800397dc88`
+ 
+ ![q8b](/DeepDive/Images/q8b.png)
+ 
+ > **Flag:   SearchIndexer.exe**
  
 ### 9 What is the pooltag of the malicious process in ascii? (HINT: use volshell)
 ### 10 What is the physical address of the hidden executable's pooltag? (HINT: use volshell)
