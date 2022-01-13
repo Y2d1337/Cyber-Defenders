@@ -255,6 +255,7 @@ We need to add 4 bytes to the pool_header physical address.
 ![q10](/DeepDive/Images/q10.png)
 
 I convert the decimal to hexadecimal and add `0x`
+
 ![q10a](/DeepDive/Images/q10a.png)
 
  > **Flag:   0x7d3368f4**
