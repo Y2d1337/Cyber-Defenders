@@ -216,10 +216,11 @@ First we need to know about Pool allocation
 ![q9](/DeepDive/Images/q9.png)
 
 Page is structed of:
--pool_header with size of 0x10 byte.
--Optional_header size is deffrent from one to another.
--object_header with size 0x30 bytes.
--object_body with size of the object type itself.
+
+- pool_header with size of 0x10 byte.
+- Optional_header size is deffrent from one to another.
+- object_header with size 0x30 bytes.
+- object_body with size of the object type itself.
 
  We need to go up by 0x30 byte in order to change the context to object_header struct.
  
@@ -246,14 +247,14 @@ first i convert the decimal to hexadecimal and add `0x`
 Then convert the pooltag to 4 byte string in reverse order
 ![q9c](/DeepDive/Images/q9c.png)
 
- > **Flag:   R0oT.exe**
+ > **Flag:   R0oT**
 
 ### 10 What is the physical address of the hidden executable's pooltag? (HINT: use volshell)
 We need to add 4 bytes to the pool_header physical address.
 
 ![q10](/DeepDive/Images/q10.png)
 
+I convert the decimal to hexadecimal and add `0x`
+![q10a](/DeepDive/Images/q10a.png)
 
-
-
-
+ > **Flag:   0x7d3368f4**
