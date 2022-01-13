@@ -9,3 +9,4 @@ Completed Challenges:
 - Phishy
 - Injector
 - Bucket
+- DeepDive - !NEW!
