@@ -157,7 +157,7 @@ We need to use `volshell` to get the answer
 
 we need to changes the current shell context to to the process specified.
 
-`cc(offset=0x000000007d336950 , phyiscal=True)`
+`cc(offset=0x000000007d336950 , physical=True)`
 
 get the ActiveProcessLink value of the next process
 
@@ -204,7 +204,7 @@ class  GetProcByAcLin(common.AbstractWindowsCommand):
 
 Then i ran
 
-`vol.py --plugins="plug/" -f banking-malware.vmem --profile Win7SP1x64_24000 getprocbyaclin -t 0xfffffa800397dc88`
+`vol.py --plugins="/opt/memory-baseliner/plugin/" -f banking-malware.vmem --profile Win7SP1x64_24000 getprocbyaclin -t 0xfffffa800397dc88`
  
 ![q8b](/DeepDive/Images/q8b.png)
  
