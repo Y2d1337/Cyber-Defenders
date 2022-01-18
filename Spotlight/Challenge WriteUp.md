@@ -1,5 +1,5 @@
 # Spotlight Challenge
-![This is an image](/Spotlight/Images/DeepDivehead.png)
+![This is an image](/Spotlight/Images/spotlighthead.png)
 
 ## Challenge Link
 https://cyberdefenders.org/blueteam-ctf-challenges/34
