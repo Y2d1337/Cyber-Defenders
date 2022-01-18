@@ -31,58 +31,61 @@ https://cyberdefenders.org/blueteam-ctf-challenges/34
           
 ## Questions:  
 ### 1 What version of macOS is running on this image?
-10.15
+
+> **Flag: 10.15**
 
 ### 2 What "competitive advantage" did Hansel lie about in the file AnotherExample.jpg? (two words)
-flip phone
+
+> **Flag: flip phone**
 
 ### 3 How many bookmarks are registered in safari?
 
-13
+> **Flag: 13**
 
 ### 4 	What's the content of the note titled "Passwords"?
-	200 	63
-Passwords
+
+> **Flag: Passwords**
 
 ### 5 	Provide the MAC address of the ethernet adapter for this machine.
 	
-00:0C:29:C4:65:77
+> **Flag: 00:0C:29:C4:65:77**
 
 ### 6 Name the data URL of the quarantined item.
 
-https://futureboy.us/stegano/encode.pl
+> **Flag: https://futureboy.us/stegano/encode.pl**
 
 ### 7 What app did the user "sneaky" try to install via a .dmg file? (one word)
 
-silenteye
+> **Flag: silenteye**
 
 ### 8 What was the file 'Examplesteg.jpg' renamed to?
 
-GoodExample.jpg
+> **Flag: GoodExample.jpg**
 
 ### 9 How much time was spent on mail.zoho.com on 4/20/2020?
 
-20:58
+> **Flag: 20:58**
 
 ### 10 What's hansel.apricot's password hint? (two words)
 
-Family Opinion
+> **Flag: Family Opinion**
 
 ### 11 The main file that stores Hansel's iMessages had a few permissions changes. How many times did the permissions change?
 
-7
+> **Flag: 7**
+
 ### 12 What's the UID of the user who is responsible for connecting mobile devices?
 
-213
+> **Flag: 213**
 
 ### 13 Find the flag in the GoodExample.jpg image. It's hidden with better tools.
 
-helicopter
+> **Flag: helicopter**
 
 ### 14 What was exactly typed in the Spotlight search bar on 4/20/2020 02:09:48
 
-term
+> **Flag: term**
 
 ### 15 What is hansel.apricot's Open Directory user UUID?
 
-5BB00259-4F58-4FDE-BC67-C2659BA0A5A4 
+> **Flag: 5BB00259-4F58-4FDE-BC67-C2659BA0A5A4**
