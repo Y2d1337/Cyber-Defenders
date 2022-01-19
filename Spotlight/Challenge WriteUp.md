@@ -61,7 +61,7 @@ The contant of the secret file was `!Our newest phone will have helicopter blade
 
 With all that i assumed that there something hidden inside that jpg (Steganography)
 
-I open `AnotherExample.jpg` with HxD Editor
+I open `AnotherExample.jpg` with `HxD Editor`
 
 ![q2b](/Spotlight/Images/q2b.png)
 
@@ -71,10 +71,27 @@ Scrool down to the end and saw the hidden text
 
 ### 3 How many bookmarks are registered in safari?
 
+Safari folder located at `root\Users\hansel.apricot\Library\Safari`, the bookmarks file named `bookmarks.plist`
+
+![q3](/Spotlight/Images/q3.png)
+
+I counted the sites with notepad++
 
 > **Flag: 13**
 
 ### 4 	What's the content of the note titled "Passwords"?
+To find the answer i needed to know where the notes application files are located.
+
+I came across with this article
+
+https://www.swiftforensics.com/2018/02/reading-notes-database-on-macos.html
+
+From the article i understand that the notes files are located at `\root\Users\hansel.apricot\Library\Group Containers\group.com.apple.notes` and the notes itself stored in `NoteStore.sqlite-wal` file.
+
+i open `NoteStore.sqlite-wal` with `HxD Editor` 
+
+![q4](/Spotlight/Images/q4.png)
+
 
 > **Flag: Passwords**
 
