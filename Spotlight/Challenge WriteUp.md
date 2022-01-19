@@ -141,16 +141,39 @@ The file `.zsh_history`
 
 ![q7](/Spotlight/Images/zhistory.png)
 
+We can see the attempts to install of `silenteye-0.4.1b-snowleopard.dmg`
 
 > **Flag: silenteye**
 
 
 ### 8 What was the file 'Examplesteg.jpg' renamed to?
+Before we can start, we need to understand where we can see the system event log.
+
+I found video of SANS DFIR Summit on youtube that explain it
+
+https://www.youtube.com/watch?v=bv5gu5reKEA
+
+In the video they recommending using `FSEventsParser` tool to parse `FSEvents` files from the '\root\.fseventsd'
+
+>Usage: FSEParser_V4.exe -s SOURCE -o OUTDIR -t SOURCETYPE [folder|image] [-c CASENAME -q REPORT_QUERIES]
+
+Open the output file `FSEvents.sqlite` with `SQL browser`, then i filter `ExampleSteg.jpg` to see all the events.
+
+I wrote down the first event id and clear all filters
+
+![q8a](/Spotlight/Images/q8a.png)
+
+Then i filtered the event id and follow the event until the next "renamed" flag
+
+![q8b](/Spotlight/Images/q8b.png)
 
 > **Flag: GoodExample.jpg**
 
-
 ### 9 How much time was spent on mail.zoho.com on 4/20/2020?
+
+
+
+![q8b](/Spotlight/Images/q8b.png)
 
 > **Flag: 20:58**
 
