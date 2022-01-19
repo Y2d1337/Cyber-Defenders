@@ -27,18 +27,50 @@ https://cyberdefenders.org/blueteam-ctf-challenges/34
         ◦ This tool may be used to parse the data content of a .plist file.
     • FSEventsParser
         ◦ FSEventsParser can be used to parse FSEvents files from the '/.fseventsd/' on a live system or FSEvents files extracted from an image.
-      
+  
+  
+  
+## Intro:
+If you are not familiar with MacOS forensic i recommend to read short explanation about macOS 
+
+https://medium.com/about-developer-blog/macos-forensics-diy-style-3369868505dd
           
 ## Questions:  
 ### 1 What version of macOS is running on this image?
+MacOS version are located in file named `SystemVersion.plist`
+
+`root\System\Library\CoreServices\SystemVersion.plist`
+
+![q1](/Spotlight/Images/q1.png)
+
 
 > **Flag: 10.15**
 
 ### 2 What "competitive advantage" did Hansel lie about in the file AnotherExample.jpg? (two words)
+To find the file i used powershell command `gci -recurse -filter "AnotherExample.jpg" -File -ErrorAction SilentlyContinue`
+
+![q2a](/Spotlight/Images/q2a.png)
+
+In the folder i saw two files created at the same time..
+
+![q2c](/Spotlight/Images/q2c.png)
+
+`secret` and the `AnotherExample.jpg`
+
+The contant of the secret file was `!Our newest phone will have helicopter blades and six cameras and <"flip phone"> technology!`
+
+With all that i assumed that there something hidden inside that jpg (Steganography)
+
+I open `AnotherExample.jpg` with HxD Editor
+
+![q2b](/Spotlight/Images/q2b.png)
+
+Scrool down to the end and saw the hidden text
 
 > **Flag: flip phone**
 
 ### 3 How many bookmarks are registered in safari?
+
 
 > **Flag: 13**
 
