@@ -48,7 +48,7 @@ MacOS version are located in file named `SystemVersion.plist`
 ![q1](/Spotlight/Images/q1.png)
 
 > **Flag: 10.15**
-726
+
 
 ### 2 What "competitive advantage" did Hansel lie about in the file AnotherExample.jpg? (two words)
 To find the file i used powershell command `gci -recurse -filter "AnotherExample.jpg" -File -ErrorAction SilentlyContinue`
@@ -113,6 +113,15 @@ The file located at `/private/var/log/'
 
 
 ### 6 Name the data URL of the quarantined item.
+To find the answer i needed to know where the quarantined items are located.
+
+From https://eclecticlight.co/2020/10/29/quarantine-and-the-quarantine-flag/
+
+I found the location `\root\Users\sneaky\Library\Preferences` and the file `com.apple.LaunchServices.QuarantineEventsV2`
+
+Opened the file with SQLbroswer 
+
+![q6](/Spotlight/Images/q6.png)
 
 > **Flag: https://futureboy.us/stegano/encode.pl**
 
