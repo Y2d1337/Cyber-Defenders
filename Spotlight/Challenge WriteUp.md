@@ -123,9 +123,24 @@ Opened the file with SQLbroswer
 
 ![q6](/Spotlight/Images/q6.png)
 
-> **Flag: https://futureboy.us/stegano/encode.pl**
+> **Flag: https://<i></i>futureboy.us/stegano/encode.pl**
 
 ### 7 What app did the user "sneaky" try to install via a .dmg file? (one word)
+One of the things i does when i doing digital forensics, is always checking the deleted files on the system :)
+
+The location of deleted files is `root\Users\sneaky\.Trash`
+
+![q7](/Spotlight/Images/q7.png)
+
+After i finished this question i found another evidence related to the user tried to install .dmg file
+
+The file `.zsh_history`
+
+#### Explanation:
+>All the commands you type in your ZSH session will be automatically stored in the history file for reuse. To view all the commands stored in the . zsh_history file
+
+![q7](/Spotlight/Images/zhistory.png)
+
 
 > **Flag: silenteye**
 
