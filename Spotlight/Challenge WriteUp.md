@@ -31,9 +31,13 @@ https://cyberdefenders.org/blueteam-ctf-challenges/34
   
   
 ## Intro:
-If you are not familiar with MacOS forensic i recommend to read short explanation about macOS 
+If you are not familiar with MacOS forensic i recommend to read the following articles
 
-https://medium.com/about-developer-blog/macos-forensics-diy-style-3369868505dd
+- https://medium.com/about-developer-blog/macos-forensics-diy-style-3369868505dd
+
+- https://davidkoepi.wordpress.com/2013/07/06/macforensics4/
+
+- http://thexlab.com/faqs/maintscripts.html
           
 ## Questions:  
 ### 1 What version of macOS is running on this image?
@@ -43,8 +47,8 @@ MacOS version are located in file named `SystemVersion.plist`
 
 ![q1](/Spotlight/Images/q1.png)
 
-
 > **Flag: 10.15**
+726
 
 ### 2 What "competitive advantage" did Hansel lie about in the file AnotherExample.jpg? (two words)
 To find the file i used powershell command `gci -recurse -filter "AnotherExample.jpg" -File -ErrorAction SilentlyContinue`
@@ -69,6 +73,7 @@ Scrool down to the end and saw the hidden text
 
 > **Flag: flip phone**
 
+
 ### 3 How many bookmarks are registered in safari?
 
 Safari folder located at `root\Users\hansel.apricot\Library\Safari`, the bookmarks file named `bookmarks.plist`
@@ -78,6 +83,7 @@ Safari folder located at `root\Users\hansel.apricot\Library\Safari`, the bookmar
 I counted the sites with notepad++
 
 > **Flag: 13**
+
 
 ### 4 	What's the content of the note titled "Passwords"?
 To find the answer i needed to know where the notes application files are located.
@@ -92,12 +98,19 @@ i open `NoteStore.sqlite-wal` with `HxD Editor`
 
 ![q4](/Spotlight/Images/q4.png)
 
-
 > **Flag: Passwords**
 
-### 5 	Provide the MAC address of the ethernet adapter for this machine.
+
+### 5 Provide the MAC address of the ethernet adapter for this machine.
+
+The `daily.out` file contains information relating to disk usage and networking.
+
+The file located at `/private/var/log/'
+
+![q9](/Spotlight/Images/q9.png)
 	
 > **Flag: 00:0C:29:C4:65:77**
+
 
 ### 6 Name the data URL of the quarantined item.
 
@@ -107,9 +120,11 @@ i open `NoteStore.sqlite-wal` with `HxD Editor`
 
 > **Flag: silenteye**
 
+
 ### 8 What was the file 'Examplesteg.jpg' renamed to?
 
 > **Flag: GoodExample.jpg**
+
 
 ### 9 How much time was spent on mail.zoho.com on 4/20/2020?
 
