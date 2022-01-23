@@ -295,7 +295,7 @@ I looked all the user's nodes located at `root\private\var\db\dslocal\nodes\Defa
 ### 13 Find the flag in the GoodExample.jpg image. It's hidden with better tools.
 I used `steghide` to extract the data from the image to txt file.
 
->Usage: steghide.exe extract -sf "<image file location>"
+>Usage: steghide.exe extract -sf "image file location"
 
 ![q13](/Spotlight/Images/q13.png)
 	
