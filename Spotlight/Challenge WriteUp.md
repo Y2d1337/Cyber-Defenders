@@ -194,7 +194,7 @@ Because the tool writing in python i just looked at the plugin code to see how i
 
 ![q5a](/Spotlight/Images/q5a.png)
 
-He used this sql query
+He used sql query
 
 ```python
  query = "SELECT " \
@@ -264,25 +264,61 @@ ITS WORKS :)
 > **Flag: 20:58**
 
 ### 10 What's hansel.apricot's password hint? (two words)
+From the article https://davidkoepi.wordpress.com/2013/07/06/macforensics4/
+
+User’s account – password hint `/private/var/db/dslocal/nodes/[user].plist`
+
+![q10](/Spotlight/Images/q10.png)
 
 > **Flag: Family Opinion**
 
 ### 11 The main file that stores Hansel's iMessages had a few permissions changes. How many times did the permissions change?
+From the article https://towardsdatascience.com/heres-how-you-can-access-your-entire-imessage-history-on-your-mac-f8878276c6e9
+
+The main iMessages file is `chat.db` located at `Users/username/Library/Messages/`
+
+I opened the output file (from question 8) `FSEvents.sqlite`  with `SQL browser` and search for `Users/hansel.apricot/Library/Messages/chat.db` and `permissions change`
+
+![q11](/Spotlight/Images/q11.png)
 
 > **Flag: 7**
 
 ### 12 What's the UID of the user who is responsible for connecting mobile devices?
+I looked all the user's nodes located at `root\private\var\db\dslocal\nodes\Default` until i found the one related to mobile 
+
+![q12](/Spotlight/Images/q12.png)
 
 > **Flag: 213**
 
 ### 13 Find the flag in the GoodExample.jpg image. It's hidden with better tools.
+I used `steghide` to extract the data from the image to txt file.
+
+>Usage: steghide.exe extract -sf "<image file location>"
+
+![q13](/Spotlight/Images/q13.png)
+	
+`type steganopayload27635.txt`	
+	
+#### The data:
+>Our latest phone will have flag<helicopter> blades and 6 cameras on it. No
+other phone has those features!
 
 > **Flag: helicopter**
 
 ### 14 What was exactly typed in the Spotlight search bar on 4/20/2020 02:09:48
+I used the file `com.apple.spotlight.Shortcuts` located in `\root\Users\sneaky\Library\Application Support\com.apple.spotlight` to find the answer 	
+	
+When you search something in spotlight and you select one option it creates this archive.
+	
+https://discussions.apple.com/thread/7340790
 
+![q14](/Spotlight/Images/q14.png)	
+	
 > **Flag: term**
-
+	
 ### 15 What is hansel.apricot's Open Directory user UUID?
+I used the file `Hansel Apricot’s Public Folder.plist` located in `root\private\var\db\dslocal\nodes\Default\sharepoints` to find the answer 	
+
+![q15](/Spotlight/Images/q15.png)		
 
 > **Flag: 5BB00259-4F58-4FDE-BC67-C2659BA0A5A4**
