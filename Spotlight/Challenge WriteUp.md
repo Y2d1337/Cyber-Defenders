@@ -188,8 +188,78 @@ The problem was i unable to correct the date format, so i can't match the result
 
 I remembered the tool `Mac_apt` has the plugin `SCREENTIME` for `Parses application Screen Time data`
 
+I tried to ran the tool but i getting python requirement error i could not resolve.
+
+Because the tool writing in python i just looked at the plugin code to see how its extract the data
+
+![q5a](/Spotlight/Images/q5a.png)
+
+He used this sql query
+
+```python
+ query = "SELECT " \
+        "IFNULL(zut.ZBUNDLEIDENTIFIER, zut.ZDOMAIN) as app, " \
+        "time(zut.ZTOTALTIMEINSECONDS, 'unixepoch') as total_time, " \
+        "datetime(zub.ZSTARTDATE + 978307200, 'unixepoch')  as start_date, " \
+        "datetime(zub.ZLASTEVENTDATE + 978307200, 'unixepoch')  as end_date, " \
+        "zuci.ZNUMBEROFNOTIFICATIONS as num_notifics, " \
+        "zuci.ZNUMBEROFPICKUPS as num_pickups, " \
+        "zub.ZNUMBEROFPICKUPSWITHOUTAPPLICATIONUSAGE as num_pickups_no_app, " \
+        "zcd.ZNAME as device_name, zcu.ZAPPLEID as apple_id, " \
+        "zcu.ZGIVENNAME || \" \" || zcu.ZFAMILYNAME as full_name, " \
+        "zcu.ZFAMILYMEMBERTYPE as family_type " \
+        "FROM ZUSAGETIMEDITEM as zut " \
+        "LEFT JOIN ZUSAGECATEGORY as zuc on zuc.Z_PK = zut.ZCATEGORY " \
+        "LEFT JOIN ZUSAGEBLOCK as zub on zub.Z_PK = zuc.ZBLOCK " \
+        "LEFT JOIN ZUSAGE as zu on zu.Z_PK = zub.ZUSAGE " \
+        "LEFT JOIN ZCOREDEVICE as zcd on zcd.Z_PK = zu.ZDEVICE " \
+        "LEFT JOIN ZCOREUSER as zcu on zcu.Z_PK = zu.ZUSER " \
+        "LEFT JOIN ZUSAGECOUNTEDITEM as zuci on zuci.ZBLOCK = zuc.ZBLOCK AND zuci.ZBUNDLEIDENTIFIER = zut.ZBUNDLEIDENTIFIER " \
+        "ORDER BY zub.ZSTARTDATE;"
+```
 
 
+So i copied it and fix it to match sql format
+
+
+```sql
+SELECT 
+  IFNULL(
+    zut.ZBUNDLEIDENTIFIER, zut.ZDOMAIN
+  ) as app, 
+  time(
+    zut.ZTOTALTIMEINSECONDS, 'unixepoch'
+  ) as total_time, 
+  datetime(
+    zub.ZSTARTDATE + 978307200, 'unixepoch'
+  ) as start_date, 
+  datetime(
+    zub.ZLASTEVENTDATE + 978307200, 'unixepoch'
+  ) as end_date, 
+  zuci.ZNUMBEROFNOTIFICATIONS as num_notifics, 
+  zuci.ZNUMBEROFPICKUPS as num_pickups, 
+  zub.ZNUMBEROFPICKUPSWITHOUTAPPLICATIONUSAGE as num_pickups_no_app, 
+  zcd.ZNAME as device_name, 
+  zcu.ZAPPLEID as apple_id, 
+  zcu.ZGIVENNAME,zcu.ZFAMILYNAME as full_name, 
+  zcu.ZFAMILYMEMBERTYPE as family_type 
+FROM 
+  ZUSAGETIMEDITEM as zut 
+  LEFT JOIN ZUSAGECATEGORY as zuc on zuc.Z_PK = zut.ZCATEGORY 
+  LEFT JOIN ZUSAGEBLOCK as zub on zub.Z_PK = zuc.ZBLOCK 
+  LEFT JOIN ZUSAGE as zu on zu.Z_PK = zub.ZUSAGE 
+  LEFT JOIN ZCOREDEVICE as zcd on zcd.Z_PK = zu.ZDEVICE 
+  LEFT JOIN ZCOREUSER as zcu on zcu.Z_PK = zu.ZUSER 
+  LEFT JOIN ZUSAGECOUNTEDITEM as zuci on zuci.ZBLOCK = zuc.ZBLOCK 
+  AND zuci.ZBUNDLEIDENTIFIER = zut.ZBUNDLEIDENTIFIER 
+ORDER BY 
+  app;
+```
+I ran the sql query in `SQL browser`
+
+![q5b](/Spotlight/Images/q5b.png)
+
+ITS WORKS :)
 
 > **Flag: 20:58**
 
