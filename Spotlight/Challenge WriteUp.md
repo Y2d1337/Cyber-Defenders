@@ -105,7 +105,7 @@ i open `NoteStore.sqlite-wal` with `HxD Editor`
 
 The `daily.out` file contains information relating to disk usage and networking.
 
-The file located at `/private/var/log/'
+The file located at `/private/var/log/`
 
 ![q9](/Spotlight/Images/q9.png)
 	
