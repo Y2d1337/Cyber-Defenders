@@ -10,3 +10,4 @@ Completed Challenges:
 - Injector
 - Bucket
 - DeepDive - !NEW!
+- Spotlight -!NEW!
