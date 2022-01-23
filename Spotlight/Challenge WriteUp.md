@@ -1,4 +1,4 @@
-# Spotlight Challenge - ***Work in progress***
+# Spotlight Challenge
 ![This is an image](/Spotlight/Images/spotlighthead.png)
 
 ## Challenge Link
