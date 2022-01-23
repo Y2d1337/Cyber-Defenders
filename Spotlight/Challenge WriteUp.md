@@ -147,13 +147,13 @@ We can see the attempts to install of `silenteye-0.4.1b-snowleopard.dmg`
 
 
 ### 8 What was the file 'Examplesteg.jpg' renamed to?
-Before we can start, we need to understand where we can see the system event log.
+Before we can start, we need to understand where we can find MacOS system event log.
 
 I found video of SANS DFIR Summit on youtube that explain it
 
 https://www.youtube.com/watch?v=bv5gu5reKEA
 
-In the video they recommending using `FSEventsParser` tool to parse `FSEvents` files from the '\root\.fseventsd'
+In the video they recommending using `FSEventsParser` tool to parse `FSEvents` files from the `\root\.fseventsd`
 
 >Usage: FSEParser_V4.exe -s SOURCE -o OUTDIR -t SOURCETYPE [folder|image] [-c CASENAME -q REPORT_QUERIES]
 
@@ -170,10 +170,26 @@ Then i filtered the event id and follow the event until the next "renamed" flag
 > **Flag: GoodExample.jpg**
 
 ### 9 How much time was spent on mail.zoho.com on 4/20/2020?
+Because i don't familiar with MacOS i searched in google `How much time was spent on website macos`
+
+Found apple guide for the app Screen Time  https://support.apple.com/en-il/guide/mac-pro/apd23dd90132/mac
+
+>Screen Time shows you how you spend time in apps and on websites
+
+Logs location:  
+
+`\root\private\var\folders\bf\r04p_gb17xxg37r9ksq855mh0000gn\0\com.apple.ScreenTimeAgent\Store`
+
+The data store in `RMAdminStore-Local.sqlite` file, i opened the file with `SQL browser` and found the infomration in table `ZUSAGETIMEDITEM`
+
+![q5](/Spotlight/Images/q5.png)
+
+The problem was i unable to correct the date format, so i can't match the results to date 4/20/2020.
+
+I remembered the tool `Mac_apt` has the plugin `SCREENTIME` for `Parses application Screen Time data`
 
 
 
-![q8b](/Spotlight/Images/q8b.png)
 
 > **Flag: 20:58**
 
