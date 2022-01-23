@@ -38,6 +38,8 @@ If you are not familiar with MacOS forensic i recommend to read the following ar
 - https://davidkoepi.wordpress.com/2013/07/06/macforensics4/
 
 - http://thexlab.com/faqs/maintscripts.html
+
+- https://study.com/academy/lesson/basics-of-the-macintosh-os-for-digital-forensics.html
           
 ## Questions:  
 ### 1 What version of macOS is running on this image?
