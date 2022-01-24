@@ -98,19 +98,40 @@ From google :)
 > **Flag: https://<i></i>instagram.com/emarseille99/**
 
 ### 7 Where did the insider go on the holiday? (Country only)
+From the instagram i saw this post
 
-Singapore
+![q7a](/L'espion/Images/q7a.png)
+
+I decided to go for reverse image search 
+
+![q7](/L'espion/Images/q7.png)
+
+Works!
+
+> **Flag: Singapore**
 
 ### 8 Where is the insider's family live? (City only)
 
 Dubai
 
-### 9 File -> office.jpg:
-You have been provided with a picture of the building in which the company has an office. Which city is the company located in?
+### 9 File -> office.jpg: You have been provided with a picture of the building in which the company has an office. Which city is the company located in?
 
-Birmingham
+![q9](/L'espion/Images/office.jpg)
 
-### 10 File -> Webcam.png:
-With the intel, you have provided, our ground surveillance unit is now overlooking the person of interest's suspected address. They saw them leaving their apartment and followed them to the airport. Their plane took off and has landed in another country. Our intelligence team spotted the target with this IP camera. Which state is this camera in?
+I tried to use reverse image search with no success
 
-indiana 
+So i decided to search places from the street signs, I chose `hippodrome theatre`
+
+![q9](/L'espion/Images/q9.png)
+
+> **Flag: Birmingham**
+
+### 10 File -> Webcam.png: With the intel, you have provided, our ground surveillance unit is now overlooking the person of interest's suspected address. They saw them leaving their apartment and followed them to the airport. Their plane took off and has landed in another country. Our intelligence team spotted the target with this IP camera. Which state is this camera in?
+
+From looked at the picture i decide to search the camera description `A View from the Dome`
+
+The first results from google was `https://dome.nd.edu/`
+
+![q10](/L'espion/Images/Webcam.png)
+
+> **Flag: indiana**
