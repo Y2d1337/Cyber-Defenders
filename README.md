@@ -11,3 +11,4 @@ Completed Challenges:
 - Bucket
 - DeepDive - !NEW!
 - Spotlight - !NEW!
+- L'espion - !NEW!
