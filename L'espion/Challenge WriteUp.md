@@ -1,5 +1,5 @@
 # L'espion Challenge
-![This is an image](/L'espion/Images/spotlighthead.png)
+![This is an image](/L'espion/Images/L'espionhead.png)
 
 ## Challenge Link
 https://cyberdefenders.org/blueteam-ctf-challenges/73
@@ -19,18 +19,46 @@ https://cyberdefenders.org/blueteam-ctf-challenges/73
 >Investigate the incident, find the insider, and uncover the attack actions.
             
 ## Questions:  
-### 1 File -> Github.txt:
-What is the API key the insider added to his GitHub repositories?
+### 1 File -> Github.txt: What is the API key the insider added to his GitHub repositories?
 
-aJFRaLHjMXvYZgLPwiJkroYLGRkNBW
+Inside the txt file was link to github user https://github.com/EMarseille99/, I looked at user contribution activity
 
-### 2 File -> Github.txt:
-What is the plaintext password the insider added to his GitHub repositories?
+The last time the user has contribution was on may 24,2020 
 
-PicassoBaguette99
+![q1](/L'espion/Images/q1.png)
 
-### 3 File -> Github.txt:
-What cryptocurrency mining tool did the insider use?
+I clicked the green square to see all changes, 
+I saw that on may 24 2020 the user created 4 commits in the repository
+
+![q1a](/L'espion/Images/q1a.png)
+
+Inside the repository - `Project-Build---Custom-Login-Page` there was 4 commits
+
+![q1b](/L'espion/Images/q1b.png)
+
+I checked the `Update Login Page.js` 
+
+![q1c](/L'espion/Images/q1c.png)
+
+> **Flag: aJFRaLHjMXvYZgLPwiJkroYLGRkNBW**
+
+### 2 File -> Github.txt: What is the plaintext password the insider added to his GitHub repositories?
+Continuing from the previous question, I checked Create Login Page
+
+![q2a](/L'espion/Images/q2a.png)
+
+The password was encoded with base64
+
+```base64
+UGljYXNzb0JhZ3VldHRlOTk=
+```
+So i decoded it
+
+![q2b](/L'espion/Images/q2b.png)
+
+> **Flag: PicassoBaguette99**
+
+### 3 File -> Github.txt: What cryptocurrency mining tool did the insider use?
 
 xmrig
 
