@@ -59,20 +59,43 @@ So i decoded it
 > **Flag: PicassoBaguette99**
 
 ### 3 File -> Github.txt: What cryptocurrency mining tool did the insider use?
+I checked the user other contribution and found on may 20,2020 
 
-xmrig
+![q3](/L'espion/Images/q3.png)
+
+I know `xmrig` is cryptocurrency mining tool
+
+> **Flag: xmrig**
 
 ### 4 What university did the insider go to?
-	
-Sorbonne
+The answer will not appeared in github so i googled the username `EMarseille99`
+
+I found here linkedin profile
+
+https://www.linkedin.com/in/%C3%A9milie-marseille-4b353a1aa/
+
+![q4](/L'espion/Images/q4.png)
+
+> **Flag: Sorbonne**
 
 ### 5 What gaming website the insider had an account on?
+I got the answer to this question after i found her instagram account, the last image has qr code inside
 
-steam
+![q5a](/L'espion/Images/q5a.png)
+
+After i scaned the code i redircated to https://steamcommunity.com/id/emarseille99
+
+![q5](/L'espion/Images/q5.png)
+
+> **Flag: steam**
+
 
 ### 6 What is the link to the insider Instagram profile?
+From google :)
 
-https://www.instagram.com/emarseille99/
+![q6](/L'espion/Images/q6.png)
+
+> **Flag: https://<i></i>instagram.com/emarseille99/**
 
 ### 7 Where did the insider go on the holiday? (Country only)
 
