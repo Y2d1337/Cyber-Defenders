@@ -135,8 +135,19 @@ So i decided to search places from the street signs, I chose `hippodrome theatre
 
 From looked at the picture i decide to search the camera description `A View from the Dome`
 
+![q10](/L'espion/Images/WebCam.png)
+
 The first results from google was `https://dome.nd.edu/`
 
-![q10](/L'espion/Images/WebCam.png)
+This is the live camera from the site
+
+>So beautiful!
+
+![q10b](/L'espion/Images/q10b.png)
+
+
+From the site we found the state
+
+![q10a](/L'espion/Images/q10.png)
 
 > **Flag: indiana**
