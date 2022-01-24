@@ -111,8 +111,13 @@ Works!
 > **Flag: Singapore**
 
 ### 8 Where is the insider's family live? (City only)
+From the instagram i saw this post
 
-Dubai
+![q8](/L'espion/Images/q8.png)
+
+The flag seem belong to United Arab Emirates so i tried `Dubai` :)
+
+> **Flag: Dubai**
 
 ### 9 File -> office.jpg: You have been provided with a picture of the building in which the company has an office. Which city is the company located in?
 
@@ -132,6 +137,6 @@ From looked at the picture i decide to search the camera description `A View fro
 
 The first results from google was `https://dome.nd.edu/`
 
-![q10](/L'espion/Images/Webcam.png)
+![q10](/L'espion/Images/WebCam.png)
 
 > **Flag: indiana**
