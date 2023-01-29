@@ -9,6 +9,6 @@ Completed Challenges:
 - [Phishy](Phishy/Challenge%20WriteUp.md)
 - [Injector](Injector/Challenge%20WriteUp.md)
 - [Bucket](Bucket/Challenge%20WriteUp.md)
-- [DeepDive -](DeepDive/Challenge%20WriteUp.md) !NEW!
-- [Spotlight -](Spotlight/Challenge%20WriteUp.md) !NEW!
-- [L'espion -](L'espion/Challenge%20WriteUp.md) !NEW!
+- [DeepDive -](DeepDive/Challenge%20WriteUp.md)
+- [Spotlight -](Spotlight/Challenge%20WriteUp.md)
+- [L'espion -](L'espion/Challenge%20WriteUp.md)
